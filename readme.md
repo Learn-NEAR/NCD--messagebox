@@ -13,11 +13,15 @@ Ntoice: This project is modified to run on windows. To run on Linux/Mac restore 
 
 ## NEAR-CLI commands
 
+- initContract
+  - near call messages.testnet initContract --accountId messages.testnet --gas 300000000000000
 - send message
-  - near call -contractAccount- initFrames "{\"start\": 0, \"end\": 10}" --accountId -yourAccount- --gas 300000000000000
+  - near call messages.testnet sendMessage "{\"target_account_id\": \"p400.testnet\", \"message\": \"Hallo\"}" --accountId messages.testnet --gas 300000000000000 --amount 0.001
 - retrieveMessages
-  - near call -contractAccount- initFrames "{\"start\": 0, \"end\": 10}" --accountId -yourAccount- --gas 300000000000000
+  - near call messages.testnet retrieveMessages --accountId messages.testnet --gas 300000000000000
+- deleteAllMessages
+  - near call messages.testnet deleteAllMessages --accountId messages.testnet --gas 300000000000000
+- getCurrentFee
+  - near call messages.testnet getCurrentFee --accountId messages.testnet --gas 300000000000000
 - changeFee
-  - near call -contractAccount- initFrames "{\"start\": 0, \"end\": 10}" --accountId -yourAccount- --gas 300000000000000
-- deleteMessages
-  - near call -contractAccount- initFrames "{\"start\": 0, \"end\": 10}" --accountId -yourAccount- --gas 300000000000000
+  - near call messages.testnet changeFee "{\"message_fee\": 0.1}" --accountId messages.testnet --gas 300000000000000

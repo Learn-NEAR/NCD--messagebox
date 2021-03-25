@@ -72,8 +72,7 @@ export function getCurrentFee(): number {
 
 function _addMessage(target_account_id: string, message: string): void {
   const message_bucket = messages.get(target_account_id);
-  //todo Date.now() not supported?
-  const new_message = new Message(0, message, context.predecessor);
+  const new_message = new Message(context.blockTimestamp, message, context.predecessor);
 
   if (message_bucket == null) {
     const messageArray = new Array<Message>();

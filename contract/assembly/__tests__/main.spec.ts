@@ -1,13 +1,15 @@
 import { initContract, retrieveMessages, startFee } from '..';
 import { storage } from "near-sdk-as";
 
-describe("Init", () => {
+describe("Check Init", () => {
 
-    it("call method before init", () => {
-       expect(retrieveMessages()).toThrow("The contract should be initialized before usage.");
+    it("error if contract is not initiliazed", () => {
+        expect(() => {
+            retrieveMessages()
+        }).toThrow("The contract should be initialized before usage.");
     });
 
-    it("check message_fee correctly set", () => {
+    it("check if message_fee is correctly set after contract init", () => {
         initContract();
         const message_fee = storage.getSome<number>("message_fee");
         expect(message_fee).toBe(startFee);

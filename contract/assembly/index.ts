@@ -28,7 +28,14 @@ export const startFee = 0.001;
 export function initContract(): void {
   /// Initializes the contract with the given NEAR foundation account ID.
   assert(!storage.hasKey('message_fee'), 'Already initialized')
+  assert(context.predecessor == contractOwner, "Only the owner can call this method");
   storage.set('message_fee', startFee);
+}
+
+export function uninitContract(): void {
+  assert(context.predecessor == contractOwner, "Only the owner can call this method");
+  storage.delete('message_fee');
+  storage.delete('m');
 }
 
 export function sendMessage(target_account_id: string, message: string): void {

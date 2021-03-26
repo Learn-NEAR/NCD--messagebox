@@ -8,7 +8,7 @@ Get my messages: empty
 near call messages.testnet retrieveMessages --accountId messages.testnet --gas 300000000000000
 
 Send message and attach near for fee
-near call messages.testnet sendMessage "{\"target_account_id\": \"p400.testnet\", \"message\": \"Hello, ...\"}" --accountId messages.testnet --gas 300000000000000 --amount 0.001
+near call messages.testnet sendMessage "{\"target_account_id\": \"p400.testnet\", \"message\": \"Hello2, ...\"}" --accountId messages.testnet --gas 300000000000000 --amount 0.001
 
 Get my messages of other account: Should have the "Hello, ..." message
 near call messages.testnet retrieveMessages --accountId p400.testnet --gas 300000000000000

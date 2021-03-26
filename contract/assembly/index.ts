@@ -1,8 +1,8 @@
-import { context, ContractPromiseBatch, logging, PersistentMap, storage, u128 } from 'near-sdk-as'
+import { context, ContractPromiseBatch, PersistentMap, storage, u128 } from 'near-sdk-as'
 import { toYocto } from './utils';
 
 /**************************/
-/* Types */
+/* TYPES */
 /**************************/
 
 @nearBindgen
@@ -12,7 +12,7 @@ export class Message {
 }
 
 /**************************/
-/* Storage AND COLLECTIONNS */
+/* STORAGE AND COLLECTIONS */
 /**************************/
 
 const messages = new PersistentMap<string, Message[]>('m')
